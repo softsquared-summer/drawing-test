@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,7 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Switch;
 import android.widget.TextView;
@@ -22,6 +24,7 @@ import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.softsquared.drawing.cameraset.Camera2Preview;
 import com.softsquared.drawing.sensorset.SensorSet2;
 import com.softsquared.drawing.util.TranslationUtil;
@@ -29,15 +32,21 @@ import com.softsquared.drawing.view.AutoFitTextureView;
 import com.softsquared.drawing.view.DrawingView;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+
+import petrov.kristiyan.colorpicker.ColorPicker;
 
 public class DrawingActivity extends BaseActivity implements View.OnClickListener {
     static String TAG = "DrawingAcitivty";
 
+    //Floating Action Button
+    private FloatingActionButton mSelectColorButton;
+
     //custom drawing view
     private DrawingView drawView;
     //buttons
-    private ImageButton currPaint, drawBtn, eraseBtn, newBtn, saveBtn;
+    private ImageView currPaint, drawBtn, eraseBtn, newBtn, saveBtn;
     //sizes
     private float smallBrush, mediumBrush, largeBrush;
 
@@ -79,6 +88,8 @@ public class DrawingActivity extends BaseActivity implements View.OnClickListene
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         setContentView(R.layout.activity_drawing);
 
+        mSelectColorButton = findViewById(R.id.fab_drawing_select_color);
+
 //        doodleCount = 0;
 
 //        mAuth = FirebaseAuth.getInstance();
@@ -88,15 +99,11 @@ public class DrawingActivity extends BaseActivity implements View.OnClickListene
 
 //        if(!MainActivity.placeName.isEmpty()) placeName = MainActivity.placeName;
 //        Log.d("QRcode", "Draw-placeName : " +placeName);
-//        storageSet = new StorageSet(this, placeName);
+//        storageSet = new_pic StorageSet(this, placeName);
 
         //get drawing view
         drawView = findViewById(R.id.drawing);
 
-        //get the palette and first color button
-        LinearLayout paintLayout = findViewById(R.id.paint_colors);
-        currPaint = (ImageButton) paintLayout.getChildAt(0);
-        currPaint.setImageDrawable(getDrawable(R.drawable.paint_pressed));
 
         //sizes from dimensions
 //        smallBrush = getResources().getInteger(R.integer.small_size);
@@ -116,7 +123,7 @@ public class DrawingActivity extends BaseActivity implements View.OnClickListene
         eraseBtn =  findViewById(R.id.erase_btn);
         eraseBtn.setOnClickListener(this);
 
-        //new button
+        //new_pic button
         newBtn =  findViewById(R.id.new_btn);
         newBtn.setOnClickListener(this);
 
@@ -134,7 +141,7 @@ public class DrawingActivity extends BaseActivity implements View.OnClickListene
 
 //다운로드Receiver
 
-//        mDownloadReceiver = new BroadcastReceiver() {
+//        mDownloadReceiver = new_pic BroadcastReceiver() {
 //            @Override
 //            public void onReceive(Context context, Intent intent) {
 //                Log.d(TAG, "downloadReceiver:onReceive:" + intent);
@@ -243,25 +250,7 @@ public class DrawingActivity extends BaseActivity implements View.OnClickListene
 //        progressDoodles.setText("Download : "+ ++doodleCount+"\nTotal : "+ storageSet.getUrls().size());
 //    }
 
-    //user clicked paint
-    public void paintClicked(View view) {
 
-
-        //set erase false
-        drawView.setErase(false);
-        drawView.setBrushSize(drawView.getLastBrushSize());
-
-        //use chosen color
-        if (view != currPaint) {
-            ImageButton imgView = (ImageButton) view;
-            String color = view.getTag().toString();
-            drawView.setColor(color);
-            //update ui
-            imgView.setImageDrawable(getDrawable(R.drawable.paint_pressed));
-            currPaint.setImageDrawable(getDrawable(R.drawable.paint));
-            currPaint = (ImageButton) view;
-        }
-    }
 
 
     //그리기 도구 버튼들
@@ -345,10 +334,10 @@ public class DrawingActivity extends BaseActivity implements View.OnClickListene
                 break;
 
             case R.id.new_btn :
-                //new button
+                //new_pic button
                 AlertDialog.Builder newDialog = new AlertDialog.Builder(this);
                 newDialog.setTitle("New drawing");
-                newDialog.setMessage("Start new drawing (you will lose the current drawing)?");
+                newDialog.setMessage("Start new_pic drawing (you will lose the current drawing)?");
                 newDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         drawView.startNew();
@@ -365,14 +354,14 @@ public class DrawingActivity extends BaseActivity implements View.OnClickListene
                 break;
 //            case saveBtn :
 //                //save drawing
-//                AlertDialog.Builder saveDialog = new AlertDialog.Builder(this);
+//                AlertDialog.Builder saveDialog = new_pic AlertDialog.Builder(this);
 //                saveDialog.setTitle("낙서남기기");
 //                saveDialog.setMessage(TranslationUtil.transPlaceNameENtoKOR(placeName)
-//                        +"\n"+ DateFormat.getDateTimeInstance().format(new Date())
+//                        +"\n"+ DateFormat.getDateTimeInstance().format(new_pic Date())
 //                        +"\n가로(Azimuth): "+ sensorSet2.getSensorAzimuth()+"°["+sensorSet2.getSensorDirection()+"]"
 //                        +"\n세로(Pitch) : "+ sensorSet2.getSensorPitch()
 //                        +"\n이곳에 낙서를 남길까요?");
-//                saveDialog.setPositiveButton("네", new DialogInterface.OnClickListener() {
+//                saveDialog.setPositiveButton("네", new_pic DialogInterface.OnClickListener() {
 //                    public void onClick(DialogInterface dialog, int which) {
 //                        //save drawing
 //                        drawView.setDrawingCacheEnabled(true);
@@ -386,7 +375,7 @@ public class DrawingActivity extends BaseActivity implements View.OnClickListene
 //                        drawView.startNew();
 //                    }
 //                });
-//                saveDialog.setNegativeButton("아니오", new DialogInterface.OnClickListener() {
+//                saveDialog.setNegativeButton("아니오", new_pic DialogInterface.OnClickListener() {
 //                    public void onClick(DialogInterface dialog, int which) {
 //                        dialog.cancel();
 //                    }
@@ -394,6 +383,60 @@ public class DrawingActivity extends BaseActivity implements View.OnClickListene
 //                saveDialog.show();
 //                break;
 
+            case R.id.fab_drawing_select_color :
+                final ColorPicker colorPicker = new ColorPicker(DrawingActivity.this);
+                ArrayList<String> colors = new ArrayList<>();
+                colors.add("#ffffff");
+                colors.add("#dfdde0");
+                colors.add("#c1c2c4");
+                colors.add("#818286");
+                colors.add("#000000");
+                colors.add("#7d4417");
+                colors.add("#69481f");
+                colors.add("#ac927b");
+                colors.add("#b7ab9d");
+                colors.add("#f3e6d5");
+                colors.add("#8f539d");
+                colors.add("#c780c6");
+                colors.add("#a59dd0");
+                colors.add("#0a2f49");
+                colors.add("#3354b3");
+                colors.add("#acdee5");
+                colors.add("#92ceb5");
+                colors.add("#35abad");
+                colors.add("#3588b4");
+                colors.add("#5b99fe");
+                colors.add("#ffe14f");
+                colors.add("#ffdfa2");
+                colors.add("#ced184");
+                colors.add("#5aa352");
+                colors.add("#21633d");
+                colors.add("#f7b932");
+                colors.add("#f07b2c");
+                colors.add("#fe8664");
+                colors.add("#e96561");
+                colors.add("#ce4646");
+
+
+                colorPicker
+                        .setDefaultColorButton(Color.parseColor("#f84c44"))
+                        .setColors(colors)
+                        .setColumns(5)
+                        .setRoundColorButton(true)
+                        .setOnChooseColorListener(new ColorPicker.OnChooseColorListener() {
+                            @Override
+                            public void onChooseColor(int position, int color) {
+                                Log.d("position", "" + position);// will be fired only when OK button was tapped
+                                drawView.setPaintColor(color);
+                            }
+
+                            @Override
+                            public void onCancel() {
+
+                            }
+                        }).show();
+
+                break;
             default:
                 throw new IllegalStateException("Unexpected value: " + view.getId());
         } // end Switch

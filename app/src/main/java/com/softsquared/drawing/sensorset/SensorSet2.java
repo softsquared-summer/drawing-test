@@ -60,7 +60,7 @@ public class SensorSet2 implements SensorEventListener {
         drawing_degree = (TextView) acvitivy.findViewById(R.id.drawing_degree);
         imageViewFrame = (FrameLayout) acvitivy.findViewById(R.id.imageViewFrame);
         imageList = new ArrayList<ImageView>();
-//        fileNameInfoList = new ArrayList<FileNameInfo>();
+//        fileNameInfoList = new_pic ArrayList<FileNameInfo>();
         imageIndex = new ArrayList<Integer>();
     }
 

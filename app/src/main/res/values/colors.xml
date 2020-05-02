@@ -5,7 +5,7 @@
     <color name="colorAccent">#D81B60</color>
     <color name="colorOrange">#FF6600</color>
 
-    <color name="grey_100">#f5f5f5</color>
+    <color name="grey_100">#5C5959</color>
     <color name="grey_300">#e0e0e0</color>
 
     <color name="grid_state_pressed">#1Affffff</color>

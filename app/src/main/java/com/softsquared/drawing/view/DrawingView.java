@@ -98,12 +98,11 @@ public class DrawingView extends View {
 
     }
 
-    //update color
-    public void setColor(String newColor){
+    public  void setPaintColor(int color){
         invalidate();
-        paintColor = Color.parseColor(newColor);
-        drawPaint.setColor(paintColor);
+        drawPaint.setColor(color);
     }
+
 
     //set ic_brush size
     public void setBrushSize(float newSize){
@@ -128,7 +127,7 @@ public class DrawingView extends View {
         else drawPaint.setXfermode(null);
     }
 
-    //start new drawing
+    //start new_pic drawing
     public void startNew(){
         drawCanvas.drawColor(0, PorterDuff.Mode.CLEAR);
         invalidate();
