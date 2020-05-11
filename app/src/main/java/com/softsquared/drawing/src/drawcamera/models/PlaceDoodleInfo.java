@@ -1,4 +1,4 @@
-package com.softsquared.drawing.models;
+package com.softsquared.drawing.src.drawcamera.models;
 
 /**
  * Created by choiseongsik on 2016. 10. 24..

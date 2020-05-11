@@ -1,4 +1,4 @@
-package com.softsquared.drawing.sensorset;
+package com.softsquared.drawing.src.drawcamera.sensorset;
 
 import android.content.Context;
 import android.graphics.Bitmap;
@@ -8,14 +8,13 @@ import android.hardware.SensorEvent;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.util.Log;
-import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.softsquared.drawing.DrawingActivity;
+import com.softsquared.drawing.src.drawcamera.DrawingActivity;
 import com.softsquared.drawing.R;
-import com.softsquared.drawing.models.FileNameInfo;
+import com.softsquared.drawing.src.drawcamera.models.FileNameInfo;
 
 import java.util.ArrayList;
 

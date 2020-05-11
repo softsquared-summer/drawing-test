@@ -1,4 +1,4 @@
-package com.softsquared.drawing.view;
+package com.softsquared.drawing.src.drawcamera.view;
 
 import android.content.Context;
 import android.util.AttributeSet;

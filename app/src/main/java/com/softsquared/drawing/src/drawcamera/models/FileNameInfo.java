@@ -1,4 +1,4 @@
-package com.softsquared.drawing.models;
+package com.softsquared.drawing.src.drawcamera.models;
 
 public class FileNameInfo {
     public int fileAzimuth;

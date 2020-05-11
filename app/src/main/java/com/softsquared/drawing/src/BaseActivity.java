@@ -1,9 +1,11 @@
-package com.softsquared.drawing;
+package com.softsquared.drawing.src;
 
 
 import android.app.ProgressDialog;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.softsquared.drawing.R;
 
 public class BaseActivity extends AppCompatActivity {
 

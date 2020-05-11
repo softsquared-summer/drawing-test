@@ -1,7 +1,7 @@
-package com.softsquared.drawing.util;
+package com.softsquared.drawing.src.drawcamera.util;
 
 
-import com.softsquared.drawing.models.PlaceDoodleInfo;
+import com.softsquared.drawing.src.drawcamera.models.PlaceDoodleInfo;
 
 import java.util.ArrayList;
 

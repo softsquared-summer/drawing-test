@@ -1,12 +1,9 @@
-package com.softsquared.drawing;
+package com.softsquared.drawing.src.drawcamera;
 
 import android.Manifest;
 import android.app.AlertDialog;
 import android.app.Dialog;
-import android.content.BroadcastReceiver;
-import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Build;
@@ -17,23 +14,20 @@ import android.view.WindowManager;
 import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.softsquared.drawing.cameraset.Camera2Preview;
-import com.softsquared.drawing.sensorset.SensorSet2;
-import com.softsquared.drawing.util.TranslationUtil;
-import com.softsquared.drawing.view.AutoFitTextureView;
-import com.softsquared.drawing.view.DrawingView;
+import com.softsquared.drawing.src.BaseActivity;
+import com.softsquared.drawing.R;
+import com.softsquared.drawing.src.drawcamera.cameraset.Camera2Preview;
+import com.softsquared.drawing.src.drawcamera.sensorset.SensorSet2;
+import com.softsquared.drawing.src.drawcamera.view.AutoFitTextureView;
+import com.softsquared.drawing.src.drawcamera.view.DrawingView;
 
-import java.text.DateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 import petrov.kristiyan.colorpicker.ColorPicker;
 
@@ -53,10 +47,11 @@ public class DrawingActivity extends BaseActivity implements View.OnClickListene
 
     //Camera
     //private TextureView textureView;
-    private AutoFitTextureView textureView;
-//
-//    //Camera1preview
+
+    //Camera1preview
 //    private Camera_SurfaceTextureListener cameraListener;
+
+    private AutoFitTextureView textureView;
 
     //Camera2preview
     private Camera2Preview camera2Preview;

@@ -1,4 +1,4 @@
-package com.softsquared.drawing.cameraset;
+package com.softsquared.drawing.src.drawcamera.cameraset;
 
 import android.Manifest;
 import android.app.Activity;
@@ -28,8 +28,8 @@ import android.widget.Toast;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
-import com.softsquared.drawing.DrawingActivity;
-import com.softsquared.drawing.view.AutoFitTextureView;
+import com.softsquared.drawing.src.drawcamera.DrawingActivity;
+import com.softsquared.drawing.src.drawcamera.view.AutoFitTextureView;
 
 import java.util.ArrayList;
 import java.util.Arrays;
